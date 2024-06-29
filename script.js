@@ -1,5 +1,5 @@
 const gameboard = (function() {
-    const arr = [];
+    const arr = new Array(9);
     const setArr = (idx, val) => {
         arr[idx] = val;
     };
@@ -15,3 +15,11 @@ function createPlayer(name, choice) {
     }
     return {playerName, playerChoice, drawOnBoard};
 }
+
+const com = (function(choice) {
+    const {playerName, playerChoice} = createPlayer('Com', choice);
+    function drawOnBoard() {
+
+    }
+
+})
