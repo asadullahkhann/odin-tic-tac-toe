@@ -6,3 +6,12 @@ const gameboard = (function() {
     const getArr = () => arr;
     return {setArr, getArr};
 })();
+
+function createPlayer(name, choice) {
+    const playerName = name;
+    const playerChoice = choice;
+    function drawOnBoard(cell) {
+        gameboard.setArr(cell, this.playerChoice)
+    }
+    return {playerName, playerChoice, drawOnBoard};
+}
