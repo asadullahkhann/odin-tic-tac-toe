@@ -9,9 +9,14 @@
     src: url('./fonts/Norse-Bold.otf');
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
 }
 
 header {
@@ -22,8 +27,36 @@ h1 {
     font-family: 'norse-bold';
     font-size: 2.5em;
     text-align: center;
-    margin-top: 0;
     padding: 15px 0;
     color: var(--tertiary-clr);
 }
 
+main {
+    display: grid;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+    /* align-items: center; */
+    
+    /* background-color: var(--tertiary-clr); */
+    margin-top: 10px;
+}
+
+.cell {
+    border: 2px solid var(--primary-clr);
+    font-size: 3rem;
+    color: var(--secondary-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:nth-child(1), .cell:nth-child(3), .cell:nth-child(4), .cell:nth-child(6) , .cell:nth-child(7), .cell:nth-child(9) {
+    border-left: none;
+    border-right: none;
+}
+
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3), .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+    border-bottom: none;
+    border-top: none;
+}
