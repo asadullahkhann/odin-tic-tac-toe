@@ -9,12 +9,23 @@
     src: url('./fonts/Norse-Bold.otf');
 }
 
+@font-face {
+    font-family: 'gloo-gun';
+    src: url(./fonts/GLOO-GUN.TTF);
+} 
+
+@font-face {
+    font-family: 'trick-tag';
+    src: url('./fonts/TrickTag.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
+    height: 100vh;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
 }
@@ -36,19 +47,18 @@ main {
     grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
-    /* align-items: center; */
-    
-    /* background-color: var(--tertiary-clr); */
+    align-content: center;
     margin-top: 10px;
 }
 
 .cell {
-    border: 2px solid var(--primary-clr);
+    border: 1px solid var(--primary-clr);
     font-size: 3rem;
     color: var(--secondary-clr);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'trick-tag';
 }
 
 .cell:nth-child(1), .cell:nth-child(3), .cell:nth-child(4), .cell:nth-child(6) , .cell:nth-child(7), .cell:nth-child(9) {
@@ -60,3 +70,28 @@ main {
     border-bottom: none;
     border-top: none;
 }
+
+footer {
+    background-color: var(--secondary-clr);
+}
+
+footer p {
+    padding: 15px;
+    color: var(--tertiary-clr);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-family: 'gloo-gun';
+}
+
+footer a {
+    display: flex;
+    gap: 5px;
+    color: inherit;
+}
+
+footer img {
+    align-self: center;
+}
+
