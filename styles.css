@@ -49,11 +49,60 @@ h1 {
 
 main {
     display: grid;
-    grid-template-rows: repeat(3, 100px) 50px;
+    grid-template-rows: 10px repeat(3, 100px) 50px;
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
     align-content: center;
     margin-top: 10px;
+    position: relative;
+}
+
+.line {
+    visibility: hidden;
+    grid-column: 1/4;
+    height: 2px;
+    background-color: var(--secondary-clr);
+    position: relative;
+}
+
+.h-line-0 {
+    top: 58px;
+}
+
+.h-line-3 {
+    top: 158px;
+}
+
+.h-line-6 {
+    top: 258px;
+}
+
+.v-line {
+    transform: rotate(90deg);
+    top: 157px;
+    
+}
+
+.v-line-0 {
+    right: 99px;
+}
+
+.v-line-1 {
+    left: 1px;
+}
+
+.v-line-2 {
+    left: 101px;
+}
+
+.d-line-0 {
+    transform: rotate(45deg);
+    top: 156px;
+}
+
+.d-line-2 {
+    transform: rotate(-45deg);
+    top: 159px;
 }
 
 .cell {
@@ -66,12 +115,12 @@ main {
     font-family: 'trick-tag';
 }
 
-.cell:nth-child(1), .cell:nth-child(3), .cell:nth-child(4), .cell:nth-child(6) , .cell:nth-child(7), .cell:nth-child(9) {
+.no-side-bdr {
     border-left: none;
     border-right: none;
 }
 
-.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3), .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+.no-vertical-bdr {
     border-bottom: none;
     border-top: none;
 }
