@@ -35,6 +35,7 @@ const displayController = (function() {
         lineEl.className = '';
         lineEl.classList.add('line');
     }
+    return {updateVisualGameboard, drawLine, reset};
 })
 
 function createPlayer(name, choice) {
