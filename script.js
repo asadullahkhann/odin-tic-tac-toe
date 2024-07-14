@@ -75,19 +75,19 @@ const ticTacToe = (function() {
         const gameboardArr = gameboard.getArr();
         for(let i = 0; i < 9; i+=3) {
             if((gameboardArr[i] && gameboardArr[i+1] && gameboardArr[i+2]) && gameboardArr[i] === gameboardArr[i+1] && gameboardArr[i+1] === gameboardArr[i+2]) {
-                return `${gameboardArr[i]} has won!`;
+                return `${gameboardArr[i]} has won via h-line-${i}`;
             }
         }
         for(let i = 0; i < 3; i++) {
             if((gameboardArr[i] && gameboardArr[i+3] && gameboardArr[i+6]) && gameboardArr[i] === gameboardArr[i+3] && gameboardArr[i+3] === gameboardArr[i+6]) {
-                return `${gameboardArr[i]} has won!`;
+                return `${gameboardArr[i]} has won via v-line-${i}`;
             }
         }
         if((gameboardArr[0] && gameboardArr[4] && gameboardArr[8]) && gameboardArr[0] === gameboardArr[4] && gameboardArr[4] === gameboardArr[8]) {
-            return `${gameboardArr[0]} has won!`;
+            return `${gameboardArr[0]} has won via d-line-0`;
         }
         else if((gameboardArr[2] && gameboardArr[4] && gameboardArr[6]) && gameboardArr[2] === gameboardArr[4] && gameboardArr[4] === gameboardArr[6]) {
-            return`${gameboardArr[2]} has won!`;
+            return`${gameboardArr[2]} has won via d-line-2`;
         }
         else if(gameboardArr.filter(el => el === 'x' || el === 'o').length === 9) return "It's a draw!";
 
