@@ -41,11 +41,8 @@ const displayController = (function() {
 function createPlayer(name, choice) {
     const playerName = name;
     const playerChoice = choice;
-    function drawOnBoard() {
-        let cell = prompt('Which cell?');
-        while(gameboard.getArr()[+cell] !== null) {
-            cell = prompt('Already filled, try another cell');    
-        }
+    function drawOnBoard(cell) {
+        displayController.updateVisualGameboard(cell, this.playerChoice);
         gameboard.setArr(cell, this.playerChoice);
     }
     return {playerName, playerChoice, drawOnBoard};
@@ -64,6 +61,7 @@ function createCom(choice) {
     }
     function drawOnBoard() {
         let randomCell = getRandomCell();
+        displayController.updateVisualGameboard(randomCell, this.playerChoice);
         gameboard.setArr(randomCell, this.playerChoice);
     }
     return {playerName, playerChoice, drawOnBoard};
