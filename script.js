@@ -1,3 +1,7 @@
+const cells = document.querySelectorAll('.cell');
+const restartBtn = document.querySelector('button');
+const lineEl = document.querySelector('.line');
+
 const gameboard = (function() {
     let arr = [null, null, null, null, null, null, null, null, null];
     const setArr = (idx, val) => {
@@ -9,6 +13,29 @@ const gameboard = (function() {
     };
     return {setArr, getArr, resetArr};
 })();
+
+const displayController = (function() {
+    const updateVisualGameboard = (cell, choice) => {
+        cells[cell].textContent = choice;
+    };
+
+    const drawLine = (cls) => {
+        if(cls.includes('v')) {
+            lineEl.classList.add('v-line', cls);
+            return;
+            lineEl.style.visibility = 'visible';
+        }
+        lineEl.classList.add(cls);
+        lineEl.style.visibility = 'visible';
+    };
+    const reset = () => {
+        cells.forEach(cell => {
+            cell.textContent = '';
+        });
+        lineEl.className = '';
+        lineEl.classList.add('line');
+    }
+})
 
 function createPlayer(name, choice) {
     const playerName = name;
