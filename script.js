@@ -107,36 +107,38 @@ const ticTacToe = (function() {
         });
     }
 
+    function handleOnClick(e) {
+        player1.drawOnBoard(+e.target.getAttribute('data-index'));
+        e.target.onclick = null;
+        if(getResult() === "It's a draw!") {
+            alert("It's a draw!");
+            cells.forEach(cell => {
+                cell.onclick = null;
+            });
+        }
+        else if(getResult() !== 'No result yet!') {
+           handleWinning();
+        }
+        else {
+            com.drawOnBoard();
+            if(getResult() === "It's a draw!") {
+                alert("It's a draw!");
+                cells.forEach(cell => {
+                    cell.onclick = null;
+                });
+            }
+            else if(getResult() !== 'No result yet!') {
+                handleWinning();
+            }
+        }
+    };
+
     function startGame() {
         if(com.playerChoice === 'x') {
             com.drawOnBoard();
         }
         cells.forEach(cell => {
-            cell.onclick = (e) => {
-                player1.drawOnBoard(+e.target.getAttribute('data-index'));
-                e.target.onclick = null;
-                if(getResult() === "It's a draw!") {
-                    alert("It's a draw!");
-                    cells.forEach(cell => {
-                        cell.onclick = null;
-                    });
-                }
-                else if(getResult() !== 'No result yet!') {
-                   handleWinning();
-                }
-                else {
-                    com.drawOnBoard();
-                    if(getResult() === "It's a draw!") {
-                        alert("It's a draw!");
-                        cells.forEach(cell => {
-                            cell.onclick = null;
-                        });
-                    }
-                    else if(getResult() !== 'No result yet!') {
-                        handleWinning();
-                    }
-                }
-            }
+            cell.onclick = handleOnClick;
         })
     }
     const resetGame = () => gameboard.resetArr();
