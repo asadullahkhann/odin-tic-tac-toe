@@ -32,6 +32,7 @@ const displayController = (function() {
         cells.forEach(cell => {
             cell.textContent = '';
         });
+        lineEl.style.visibility = 'hidden';
         lineEl.className = '';
         lineEl.classList.add('line');
     }
