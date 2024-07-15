@@ -3,7 +3,7 @@ const restartBtn = document.querySelector('button');
 const lineEl = document.querySelector('.line');
 
 const gameboard = (function() {
-    let arr = [null, null, null, null, null, null, null, null, null];
+    let arr = new Array(9).fill(null);
     const setArr = (idx, val) => {
         arr[idx] = val;
     };
@@ -22,8 +22,8 @@ const displayController = (function() {
     const drawLine = (cls) => {
         if(cls.includes('v')) {
             lineEl.classList.add('v-line', cls);
-            return;
             lineEl.style.visibility = 'visible';
+            return;
         }
         lineEl.classList.add(cls);
         lineEl.style.visibility = 'visible';
@@ -36,7 +36,7 @@ const displayController = (function() {
         lineEl.classList.add('line');
     }
     return {updateVisualGameboard, drawLine, reset};
-})
+})();
 
 function createPlayer(name, choice) {
     const playerName = name;
@@ -63,6 +63,7 @@ function createCom(choice) {
         let randomCell = getRandomCell();
         displayController.updateVisualGameboard(randomCell, this.playerChoice);
         gameboard.setArr(randomCell, this.playerChoice);
+        cells[randomCell].onclick = null;
     }
     return {playerName, playerChoice, drawOnBoard};
 };
@@ -94,25 +95,51 @@ const ticTacToe = (function() {
         return 'No result yet!';
     }
 
+    function handleWinning() {
+        const resultArr = getResult().split(' ');
+        displayController.drawLine(resultArr[resultArr.length - 1]);
+        setTimeout(() => {
+            alert(resultArr[0].toUpperCase() + ' has won');
+        }, 2000);
+        cells.forEach(cell => {
+            cell.onclick = null;
+        });
+    }
+
     function startGame() {
-        while(true) {
-            if(player1.playerChoice === 'x') {
-                player1.drawOnBoard();
-                if(getResult() !== 'No result yet!') {
-                break;
-            }
-                com.drawOnBoard();
-            }
-            else {
-                com.drawOnBoard();
-                if(getResult() !== 'No result yet!') {
-                break;
-            }
-                player1.drawOnBoard();
-            }
+        if(com.playerChoice === 'x') {
+            com.drawOnBoard();
         }
-        return getResult();
+        cells.forEach(cell => {
+            cell.onclick = (e) => {
+                player1.drawOnBoard(+e.target.getAttribute('data-index'));
+                e.target.onclick = null;
+                if(getResult() === "It's a draw!") {
+                    alert("It's a draw!");
+                    cells.forEach(cell => {
+                        cell.onclick = null;
+                    });
+                }
+                else if(getResult() !== 'No result yet!') {
+                   handleWinning();
+                }
+                else {
+                    com.drawOnBoard();
+                    if(getResult() === "It's a draw!") {
+                        alert("It's a draw!");
+                        cells.forEach(cell => {
+                            cell.onclick = null;
+                        });
+                    }
+                    else if(getResult() !== 'No result yet!') {
+                        handleWinning();
+                    }
+                }
+            }
+        })
     }
     const resetGame = () => gameboard.resetArr();
     return {startGame, resetGame};
     })();
+
+    ticTacToe.startGame();
