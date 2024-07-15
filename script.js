@@ -146,8 +146,16 @@ const ticTacToe = (function() {
             cell.onclick = handleOnClick;
         })
     }
-    const resetGame = () => gameboard.resetArr();
+    const resetGame = () => {
+        gameboard.resetArr();
+        displayController.reset();
+        ticTacToe.startGame();
+    };
     return {startGame, resetGame};
     })();
 
     ticTacToe.startGame();
+
+    restartBtn.addEventListener('click', () => {
+        ticTacToe.resetGame();
+    })
