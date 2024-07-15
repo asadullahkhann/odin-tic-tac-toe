@@ -96,25 +96,33 @@ const ticTacToe = (function() {
         return 'No result yet!';
     }
 
+    function removeOnClickFromCells() {
+        cells.forEach(cell => {
+            cell.onclick = null;
+        })
+    }
+
+    function handleDraw() {
+        removeOnClickFromCells();
+        setTimeout(() => {
+            alert("It's a draw");
+        }, 2000);
+    }
+
     function handleWinning() {
         const resultArr = getResult().split(' ');
         displayController.drawLine(resultArr[resultArr.length - 1]);
         setTimeout(() => {
             alert(resultArr[0].toUpperCase() + ' has won');
         }, 2000);
-        cells.forEach(cell => {
-            cell.onclick = null;
-        });
+        removeOnClickFromCells();
     }
 
     function handleOnClick(e) {
         player1.drawOnBoard(+e.target.getAttribute('data-index'));
         e.target.onclick = null;
         if(getResult() === "It's a draw!") {
-            alert("It's a draw!");
-            cells.forEach(cell => {
-                cell.onclick = null;
-            });
+            handleDraw();
         }
         else if(getResult() !== 'No result yet!') {
            handleWinning();
@@ -122,10 +130,7 @@ const ticTacToe = (function() {
         else {
             com.drawOnBoard();
             if(getResult() === "It's a draw!") {
-                alert("It's a draw!");
-                cells.forEach(cell => {
-                    cell.onclick = null;
-                });
+                handleDraw();
             }
             else if(getResult() !== 'No result yet!') {
                 handleWinning();
