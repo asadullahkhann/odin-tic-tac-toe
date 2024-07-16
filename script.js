@@ -70,7 +70,7 @@ function createCom(choice) {
 };
 
 const ticTacToe = (function() {
-    const player1 = createPlayer(prompt('Enter your name'), prompt('X or O'));
+    const player1 = createPlayer(prompt('Enter your name'), prompt('X or O').toLowerCase());
     const comChoice = player1.playerChoice === 'x' ? 'o' : 'x';
     const com = createCom(comChoice);
     const getResult = () => {
