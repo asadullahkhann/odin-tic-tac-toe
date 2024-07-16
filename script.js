@@ -139,12 +139,12 @@ const ticTacToe = (function() {
     };
 
     function startGame() {
-        if(com.playerChoice === 'x') {
-            com.drawOnBoard();
-        }
         cells.forEach(cell => {
             cell.onclick = handleOnClick;
-        })
+        });
+        if(com.playerChoice === 'x') {
+            com.drawOnBoard();
+        };
     }
     const resetGame = () => {
         gameboard.resetArr();
