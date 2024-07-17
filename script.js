@@ -20,13 +20,12 @@ const displayController = (function() {
     };
 
     const drawLine = (cls) => {
+        lineEl.style.visibility = 'visible';
         if(cls.includes('v')) {
             lineEl.classList.add('v-line', cls);
-            lineEl.style.visibility = 'visible';
             return;
         }
         lineEl.classList.add(cls);
-        lineEl.style.visibility = 'visible';
     };
     const reset = () => {
         cells.forEach(cell => {
