@@ -139,17 +139,17 @@ const ticTacToe = (function() {
             player1.drawOnBoard(+e.target.getAttribute('data-index'));
             e.target.onclick = null;
             if(getResult() === "It's a draw!") {
-            handleDraw();
-            }
-            else if(getResult() !== 'No result yet!') {
-           handleWinning();
-            }
-            else {
-            com.drawOnBoard();
-            if(getResult() === "It's a draw!") {
                 handleDraw();
             }
             else if(getResult() !== 'No result yet!') {
+                handleWinning();
+            }
+            else {
+                com.drawOnBoard();
+                if(getResult() === "It's a draw!") {
+                handleDraw();
+            }
+                else if(getResult() !== 'No result yet!') {
                 handleWinning();
             }
         }
@@ -160,11 +160,11 @@ const ticTacToe = (function() {
                 e.target.onclick = null;
                 currentPlayer = 2;
                 if(getResult() === "It's a draw!") {
-                        handleDraw();
-                    }
-                    else if(getResult() !== 'No result yet!') {
-                        handleWinning();
-                    }
+                    handleDraw();
+                }
+                else if(getResult() !== 'No result yet!') {
+                    handleWinning();
+                }
             }
             else if(currentPlayer === 2) {
                 player2.drawOnBoard(+e.target.getAttribute('data-index'));
@@ -172,10 +172,10 @@ const ticTacToe = (function() {
                 currentPlayer = 1;
                 if(getResult() === "It's a draw!") {
                         handleDraw();
-                    }
-                    else if(getResult() !== 'No result yet!') {
+                }
+                else if(getResult() !== 'No result yet!') {
                         handleWinning();
-                    }
+                }
             }
         }
     };
