@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: 'gloo-gun';
-    src: url(./fonts/GLOO-GUN.TTF);
+    src: url('./fonts/GLOO-GUN.TTF');
 } 
 
 @font-face {
