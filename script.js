@@ -123,7 +123,13 @@ const ticTacToe = (function() {
         const resultArr = getResult().split(' ');
         displayController.drawLine(resultArr[resultArr.length - 1]);
         setTimeout(() => {
-            alert(resultArr[0].toUpperCase() + ' has won');
+            if(opponent === 'player 2') {
+                resultArr[0] === 'x' ? alert(player1.playerName + ' has won') 
+                : alert(player2.playerName + ' has won');
+            }
+            else {
+                alert(resultArr[0].toUpperCase() + ' has won');
+            }
         }, 2000);
         removeOnClickFromCells();
     }
