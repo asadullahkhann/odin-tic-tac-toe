@@ -183,6 +183,7 @@ const ticTacToe = (function() {
         };
     }
     const resetGame = () => {
+        currentPlayer = 1;
         gameboard.resetArr();
         displayController.reset();
         ticTacToe.startGame();
