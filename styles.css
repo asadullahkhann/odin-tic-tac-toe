@@ -22,7 +22,7 @@
 
 @font-face {
     font-family: 'ktf-roadbrush';
-    src: url('/fonts/KTF-Roadbrush.ttf');
+    src: url('./fonts/KTF-Roadbrush.ttf');
 }
 
 * {
