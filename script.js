@@ -69,9 +69,20 @@ function createCom(choice) {
 };
 
 const ticTacToe = (function() {
-    const player1 = createPlayer(prompt('Enter your name'), prompt('X or O').toLowerCase());
-    const comChoice = player1.playerChoice === 'x' ? 'o' : 'x';
-    const com = createCom(comChoice);
+    const opponent = prompt('Who do you want to play against, Player 2 or Com?').toLowerCase();
+    let player1;
+    let player2;
+    let com;
+    let currentPlayer = 1;
+    if(opponent === 'com') {
+        player1 = createPlayer(prompt('Enter your name'), prompt('X or O').toLowerCase());
+        const comChoice = player1.playerChoice === 'x' ? 'o' : 'x';
+        com = createCom(comChoice);
+    }
+    else if(opponent === 'player 2') {
+        player1 = createPlayer(prompt('Enter your name'), 'x');
+        player2 = createPlayer(prompt("Enter player 2's name"), 'o')
+    }
     const getResult = () => {
         const gameboardArr = gameboard.getArr();
         for(let i = 0; i < 9; i+=3) {
@@ -118,15 +129,16 @@ const ticTacToe = (function() {
     }
 
     function handleOnClick(e) {
-        player1.drawOnBoard(+e.target.getAttribute('data-index'));
-        e.target.onclick = null;
-        if(getResult() === "It's a draw!") {
+        if(opponent === 'com') {
+            player1.drawOnBoard(+e.target.getAttribute('data-index'));
+            e.target.onclick = null;
+            if(getResult() === "It's a draw!") {
             handleDraw();
-        }
-        else if(getResult() !== 'No result yet!') {
+            }
+            else if(getResult() !== 'No result yet!') {
            handleWinning();
-        }
-        else {
+            }
+            else {
             com.drawOnBoard();
             if(getResult() === "It's a draw!") {
                 handleDraw();
@@ -135,13 +147,38 @@ const ticTacToe = (function() {
                 handleWinning();
             }
         }
+        }
+        else {
+            if(currentPlayer === 1) {
+                player1.drawOnBoard(+e.target.getAttribute('data-index'));
+                e.target.onclick = null;
+                currentPlayer = 2;
+                if(getResult() === "It's a draw!") {
+                        handleDraw();
+                    }
+                    else if(getResult() !== 'No result yet!') {
+                        handleWinning();
+                    }
+            }
+            else if(currentPlayer === 2) {
+                player2.drawOnBoard(+e.target.getAttribute('data-index'));
+                e.target.onclick = null;
+                currentPlayer = 1;
+                if(getResult() === "It's a draw!") {
+                        handleDraw();
+                    }
+                    else if(getResult() !== 'No result yet!') {
+                        handleWinning();
+                    }
+            }
+        }
     };
 
     function startGame() {
         cells.forEach(cell => {
             cell.onclick = handleOnClick;
         });
-        if(com.playerChoice === 'x') {
+        if(opponent === 'com' && com.playerChoice === 'x') {
             com.drawOnBoard();
         };
     }
