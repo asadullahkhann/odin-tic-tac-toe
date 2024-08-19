@@ -15,8 +15,11 @@ const gameboard = (function() {
 })();
 
 const displayController = (function() {
-    const updateVisualGameboard = (cell, choice) => {
-        cells[cell].textContent = choice;
+    const updateVisualGameboard = () => {
+        for(let i = 0; i < 9; i++) {
+            if(gameboard.getArr()[i] === null) continue;
+            cells[i].textContent = gameboard.getArr()[i];
+        }
     };
 
     const drawLine = (cls) => {
@@ -42,7 +45,6 @@ function createPlayer(name, choice) {
     const playerName = name;
     const playerChoice = choice;
     function drawOnBoard(cell) {
-        displayController.updateVisualGameboard(cell, this.playerChoice);
         gameboard.setArr(cell, this.playerChoice);
     }
     return {playerName, playerChoice, drawOnBoard};
@@ -61,7 +63,6 @@ function createCom(choice) {
     }
     function drawOnBoard() {
         let randomCell = getRandomCell();
-        displayController.updateVisualGameboard(randomCell, this.playerChoice);
         gameboard.setArr(randomCell, this.playerChoice);
         cells[randomCell].onclick = null;
     }
@@ -137,6 +138,7 @@ const ticTacToe = (function() {
     function handleOnClick(e) {
         if(opponent === 'com') {
             player1.drawOnBoard(+e.target.getAttribute('data-index'));
+            displayController.updateVisualGameboard();
             e.target.onclick = null;
             if(getResult() === "It's a draw!") {
                 handleDraw();
@@ -146,6 +148,7 @@ const ticTacToe = (function() {
             }
             else {
                 com.drawOnBoard();
+                displayController.updateVisualGameboard();
                 if(getResult() === "It's a draw!") {
                 handleDraw();
             }
@@ -157,6 +160,7 @@ const ticTacToe = (function() {
         else {
             if(currentPlayer === 1) {
                 player1.drawOnBoard(+e.target.getAttribute('data-index'));
+                displayController.updateVisualGameboard();
                 e.target.onclick = null;
                 currentPlayer = 2;
                 if(getResult() === "It's a draw!") {
@@ -168,6 +172,7 @@ const ticTacToe = (function() {
             }
             else if(currentPlayer === 2) {
                 player2.drawOnBoard(+e.target.getAttribute('data-index'));
+                displayController.updateVisualGameboard();
                 e.target.onclick = null;
                 currentPlayer = 1;
                 if(getResult() === "It's a draw!") {
@@ -186,6 +191,7 @@ const ticTacToe = (function() {
         });
         if(opponent === 'com' && com.playerChoice === 'x') {
             com.drawOnBoard();
+            displayController.updateVisualGameboard();
         };
     }
     const resetGame = () => {
