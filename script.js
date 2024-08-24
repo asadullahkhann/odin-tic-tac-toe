@@ -86,23 +86,36 @@ const ticTacToe = (function() {
     }
     const getResult = () => {
         const gameboardArr = gameboard.getArr();
-        for(let i = 0; i < 9; i+=3) {
-            if((gameboardArr[i] && gameboardArr[i+1] && gameboardArr[i+2]) && gameboardArr[i] === gameboardArr[i+1] && gameboardArr[i+1] === gameboardArr[i+2]) {
+        let i = 0;
+        let j = 0;
+        while(j < 3) {
+            const currantRow = gameboardArr.slice(i, i+3)
+            if(currantRow.every(el => el === 'x') || 
+            currantRow.every(el => el === 'o')) {
                 return `${gameboardArr[i]} has won via h-line-${i}`;
             }
-        }
-        for(let i = 0; i < 3; i++) {
-            if((gameboardArr[i] && gameboardArr[i+3] && gameboardArr[i+6]) && gameboardArr[i] === gameboardArr[i+3] && gameboardArr[i+3] === gameboardArr[i+6]) {
-                return `${gameboardArr[i]} has won via v-line-${i}`;
+            const currantCol = gameboardArr.filter((el, idx) => idx === j || idx === j+3 || idx === j+6)
+            if(currantCol.every(el => el === 'x') || currantCol.every(el => el === 'o')) {
+                return `${gameboardArr[j]} has won via v-line-${j}`;
             }
+            i+=3;
+            j++;
         }
-        if((gameboardArr[0] && gameboardArr[4] && gameboardArr[8]) && gameboardArr[0] === gameboardArr[4] && gameboardArr[4] === gameboardArr[8]) {
+        let currDiagonalCol = gameboardArr.filter((el, idx) => idx === 0 || 
+        idx === 4 || 
+        idx === 8
+        );
+        if(currDiagonalCol.every(el => el === 'x') || currDiagonalCol.every(el => el === 'o')) {
             return `${gameboardArr[0]} has won via d-line-0`;
         }
-        else if((gameboardArr[2] && gameboardArr[4] && gameboardArr[6]) && gameboardArr[2] === gameboardArr[4] && gameboardArr[4] === gameboardArr[6]) {
+        currDiagonalCol = gameboardArr.filter((el, idx) => idx === 2 ||
+        idx === 4 || 
+        idx === 6
+        );
+        if(currDiagonalCol.every(el => el === 'x') || currDiagonalCol.every(el => el === 'o')) {
             return`${gameboardArr[2]} has won via d-line-2`;
         }
-        else if(gameboardArr.filter(el => el === 'x' || el === 'o').length === 9) return "It's a draw!";
+        if(gameboardArr.filter(el => el === 'x' || el === 'o').length === 9) return "It's a draw!";
 
         return 'No result yet!';
     }
