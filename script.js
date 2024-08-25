@@ -115,7 +115,7 @@ const ticTacToe = (function() {
         if(currDiagonalCol.every(el => el === 'x') || currDiagonalCol.every(el => el === 'o')) {
             return`${gameboardArr[2]} has won via d-line-2`;
         }
-        if(gameboardArr.filter(el => el === 'x' || el === 'o').length === 9) return "It's a draw!";
+        if(gameboardArr.every(el => el !== null)) return "It's a draw!";
 
         return 'No result yet!';
     }
