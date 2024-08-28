@@ -228,10 +228,10 @@ cells.forEach(cell => {
 });
 
 restartBtn.addEventListener('click', () => {
-        ticTacToe.resetGame();
         cells.forEach(cell => {
             cell.onclick = onClickHandler.handleOnClick;
-        })
+        });
+        ticTacToe.resetGame();
 });
 
 ticTacToe.startGame();
