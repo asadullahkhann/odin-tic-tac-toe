@@ -55,7 +55,6 @@ main {
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
     align-content: center;
-    margin-top: 10px;
     position: relative;
 }
 
