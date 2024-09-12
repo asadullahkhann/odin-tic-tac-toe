@@ -25,6 +25,11 @@
     src: url('./fonts/KTF-Roadbrush.ttf');
 }
 
+@font-face {
+    font-family: 'knight-warrior';
+    src: url('./fonts/KnightWarrior-w16n8.otf');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -41,9 +46,10 @@ header {
 }
 
 h1 {
-    font-family: 'norse-bold';
+    font-family: 'knight-warrior';
     font-size: 2.5em;
     text-align: center;
+    font-weight: normal;
     padding: 15px 0;
     color: var(--tertiary-clr);
 }
@@ -159,7 +165,7 @@ footer p {
     display: flex;
     justify-content: center;
     gap: 5px;
-    font-family: 'gloo-gun';
+    font-family: 'norse-bold';
 }
 
 footer a {
