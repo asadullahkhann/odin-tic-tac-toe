@@ -30,6 +30,21 @@
     src: url('./fonts/KnightWarrior-w16n8.otf');
 }
 
+@font-face {
+    font-family: 'high-jumps';
+    src: url('./fonts/High\ Jumps.ttf');
+}
+
+@font-face {
+    font-family: 'backstreet';
+    src: url('./fonts/Backstreet.ttf');
+}
+
+h2 {
+    font-family: 'high-jumps';
+    font-weight: normal;
+}
+
 * {
     box-sizing: border-box;
 }
