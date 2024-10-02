@@ -11,8 +11,8 @@
 }
 
 @font-face {
-    font-family: 'gloo-gun';
-    src: url('./fonts/GLOO-GUN.TTF');
+    font-family: 'input-mono';
+    src: url('./fonts/InputMono-Regular.ttf');
 } 
 
 @font-face {
@@ -31,18 +31,23 @@
 }
 
 @font-face {
-    font-family: 'high-jumps';
-    src: url('./fonts/High\ Jumps.ttf');
+    font-family: 'coolvetica';
+    src: url('./fonts/coolvetica\ rg.otf');
 }
 
 @font-face {
     font-family: 'backstreet';
-    src: url('./fonts/Backstreet.ttf');
+    src: url('./fonts/Impact\ Label\ Reversed.ttf');
 }
 
-h2 {
-    font-family: 'high-jumps';
-    font-weight: normal;
+@font-face {
+    font-family: 'winner';
+    src: url('./fonts/winner.otf');
+}
+
+@font-face {
+    font-family: 'venite';
+    src: url('./fonts/VeniteAdoremus-rgRBA.ttf');
 }
 
 * {
@@ -197,3 +202,102 @@ footer img {
     align-self: center;
 }
 
+dialog {
+    background-color: var(--tertiary-clr);
+    color: var(--primary-clr);
+}
+
+fieldset {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+legend {
+    font-family: 'coolvetica';
+    font-size: 2rem;
+    text-align: center;
+}
+
+.opponents {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.opponents>p {
+    font-size: 1.5rem;
+    font-family: 'high-jumps';
+    /* font-style: italic; */
+}
+
+input[type="radio"] {
+    width: 1.5rem;
+    outline: none;
+    accent-color: var(--primary-clr);
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'input-mono';
+    color: var(--secondary-clr);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 2px 2px 8px var(--primary-clr);
+}
+
+label[for="x"], label[for="o"] {
+    font-family: 'venite';
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div p {
+    display: flex;
+    gap: 5px;
+}
+
+div:not(.opponents)>p {
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 1.3rem;
+    font-family: 'backstreet';
+}
+
+p.submit {
+    padding-top: 15px;
+}
+
+.submit>button {
+    width: 100%;
+    padding: 5px 0;
+    background-color: var(--primary-clr);
+    color: var(--tertiary-clr);
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'ktf-roadbrush';
+    font-style: italic;
+}
+
+.winning-para {
+    font-size: 2rem;
+    font-family: 'winner';
+    text-align: center;
+    text-transform: capitalize;
+}

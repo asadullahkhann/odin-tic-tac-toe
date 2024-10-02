@@ -8,6 +8,28 @@
 </head>
 <body>
     <header><h1>Tic Tac Toe</h1></header>
+    <dialog>
+        <form method="dialog">
+            <fieldset>
+               <legend>Choose opponent</legend> 
+               <div class="opponents">
+                   <p><input type="radio" id="human" name="opponent" value="human"><label for="human">Human</label></p>
+                   <p><input type="radio" id="computer" name="opponent" value="computer"><label for="computer">Computer</label></p>
+               </div>
+               <div class="hidden">
+                   <p><label for="player-1">Enter player 1's name:</label><input type="text" id="player-1" value="player-1"></p>
+                   <p ><label for="player-2">Enter player 2's name:</label><input type="text" id="player-2" value="player-2"></p>
+               </div>
+               <div class="hidden">
+                   <p><label for="name">Enter your name:</label><input type="text" id="name" value="human"></p>
+                   <p>Select pawn</p>
+                   <p><input type="radio" id="x" name="pawn" value="x"><label for="x">X</label></p>
+                   <p><input type="radio" id="o" name="pawn" value="o"><label for="o">O</label></p>
+               </div>
+               <p class="hidden submit"><button>Submit</button></p>
+            </fieldset>
+        </form>
+    </dialog>
     <main>
         <div class="line"></div>
         <div class="cell no-side-bdr no-vertical-bdr" data-index="0"></div>
@@ -19,7 +41,7 @@
         <div class="cell no-side-bdr no-vertical-bdr" data-index="6"></div>
         <div class="cell no-vertical-bdr" data-index="7"></div>
         <div class="cell no-side-bdr no-vertical-bdr" data-index="8"></div>
-        <div class="btn-container"><button>Restart</button></div>
+        <div class="btn-container"><button class="restart-btn">Restart</button></div>
     </main>
     <footer><p>Coded by <a href="https://www.github.com/asadullahkhann">asadullahkhann  <img width="20px" height="20px" src="./images/github-mark.svg" alt="github-mark"></a></p></footer>
     <script src="./script.js"></script>
