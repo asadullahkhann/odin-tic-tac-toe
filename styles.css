@@ -36,8 +36,8 @@
 }
 
 @font-face {
-    font-family: 'backstreet';
-    src: url('./fonts/Impact\ Label\ Reversed.ttf');
+    font-family: 'impact-label-reversed';
+    src: url('./fonts/Impact-Label-Reversed.ttf');
 }
 
 @font-face {
@@ -275,7 +275,7 @@ div:not(.opponents)>p {
     flex-wrap: wrap;
     gap: 5px;
     font-size: 1.3rem;
-    font-family: 'backstreet';
+    font-family: 'impact-label-reversed';
 }
 
 p.submit {
