@@ -41,10 +41,13 @@ const displayController = (function() {
         lineEl.className = '';
         lineEl.classList.add('line');
     }
-    const showResult = (result) => {
+    const clearDialog = () => {
         while(dialog.firstChild) {
             dialog.removeChild(dialog.firstChild);
         }
+    }
+    const showResult = (result) => {
+        clearDialog();
         winningPara.textContent = result;
         winningPara.setAttribute('class', 'winning-para')
         closeDialogBtn.textContent = 'Ok';
