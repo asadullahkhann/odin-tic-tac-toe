@@ -13,11 +13,6 @@
 @font-face {
     font-family: 'input-mono';
     src: url('./fonts/InputMono-Regular.ttf');
-} 
-
-@font-face {
-    font-family: 'trick-tag';
-    src: url('./fonts/TrickTag.ttf');
 }
 
 @font-face {
@@ -139,12 +134,13 @@ main {
 
 .cell {
     border: 1px solid var(--primary-clr);
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--secondary-clr);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'trick-tag';
+    font-family: 'venite';
+    font-weight: normal;
 }
 
 .no-side-bdr {
