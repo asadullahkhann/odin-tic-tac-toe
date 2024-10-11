@@ -1,7 +1,7 @@
 const cells = document.querySelectorAll('.cell');
 const restartBtn = document.querySelector('.restart-btn');
 const lineEl = document.querySelector('.line');
-const winningPara = document.createElement('p');
+const resultPara = document.createElement('p');
 const submitBtnContainer = document.createElement('p');
 const closeDialogBtn = document.createElement('button');
 
@@ -48,12 +48,12 @@ const displayController = (function() {
     }
     const showResult = (result) => {
         clearDialog();
-        winningPara.textContent = result;
-        winningPara.setAttribute('class', 'winning-para')
+        resultPara.textContent = result;
+        resultPara.setAttribute('class', 'result-para')
         closeDialogBtn.textContent = 'Ok';
         submitBtnContainer.setAttribute('class', 'submit');
         submitBtnContainer.appendChild(closeDialogBtn);
-        dialog.appendChild(winningPara);
+        dialog.appendChild(resultPara);
         dialog.appendChild(submitBtnContainer);
         dialog.showModal();
     }
