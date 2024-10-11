@@ -127,16 +127,13 @@ const resultGetter = (function() {
             i+=3;
             j++;
         }
-        let currDiagonalCol = gameboardArr.filter((el, idx) => idx === 0 || 
-        idx === 4 || 
-        idx === 8
+        const diagonalCols = [0, 4, 8, 2, 4, 6];
+        let currDiagonalCol = gameboardArr.filter((el, idx) => diagonalCols.slice(0, 3).includes(idx)
         );
         if(currDiagonalCol.every(el => el === 'x') || currDiagonalCol.every(el => el === 'o')) {
             return `${gameboardArr[0]} has won via d-line-0`;
         }
-        currDiagonalCol = gameboardArr.filter((el, idx) => idx === 2 ||
-        idx === 4 || 
-        idx === 6
+        currDiagonalCol = gameboardArr.filter((el, idx) => diagonalCols.slice(3).includes(idx)
         );
         if(currDiagonalCol.every(el => el === 'x') || currDiagonalCol.every(el => el === 'o')) {
             return`${gameboardArr[2]} has won via d-line-2`;
