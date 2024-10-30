@@ -276,3 +276,7 @@ p.submit {
     text-align: center;
     text-transform: capitalize;
 }
+
+button:hover {
+    cursor: pointer;
+}
