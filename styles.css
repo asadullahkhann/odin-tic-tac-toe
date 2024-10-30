@@ -6,11 +6,6 @@
 }
 
 @font-face {
-    font-family: 'norse-bold';
-    src: url('./fonts/Norse-Bold.otf');
-}
-
-@font-face {
     font-family: 'ktf-roadbrush';
     src: url('./fonts/KTF-Roadbrush.ttf');
 }
@@ -165,7 +160,7 @@ footer p {
     font-size: 1.2rem;
     display: flex;
     gap: 5px;
-    font-family: 'norse-bold';
+    font-family: 'ktf-roadbrush';
 }
 
 footer a {
