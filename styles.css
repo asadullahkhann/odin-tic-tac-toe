@@ -11,11 +11,6 @@
 }
 
 @font-face {
-    font-family: 'input-mono';
-    src: url('./fonts/InputMono-Regular.ttf');
-}
-
-@font-face {
     font-family: 'ktf-roadbrush';
     src: url('./fonts/KTF-Roadbrush.ttf');
 }
@@ -23,21 +18,6 @@
 @font-face {
     font-family: 'knight-warrior';
     src: url('./fonts/KnightWarrior-w16n8.otf');
-}
-
-@font-face {
-    font-family: 'coolvetica';
-    src: url('./fonts/coolvetica\ rg.otf');
-}
-
-@font-face {
-    font-family: 'impact-label-reversed';
-    src: url('./fonts/Impact-Label-Reversed.ttf');
-}
-
-@font-face {
-    font-family: 'winner';
-    src: url('./fonts/winner.otf');
 }
 
 @font-face {
@@ -211,7 +191,7 @@ fieldset {
 }
 
 legend {
-    font-family: 'coolvetica';
+    font-family: 'knight-warrior';
     font-size: 2rem;
     text-align: center;
 }
@@ -224,7 +204,7 @@ legend {
 
 .opponents>p {
     font-size: 1.5rem;
-    font-family: 'coolvetica';
+    font-family: 'ktf-roadbrush';
 }
 
 input[type="radio"] {
@@ -239,7 +219,7 @@ input[type="text"] {
     border-radius: 5px;
     border: none;
     font-size: 1.1rem;
-    font-family: 'input-mono';
+    font-family: 'ktf-roadbrush';
     color: var(--secondary-clr);
 }
 
@@ -271,7 +251,7 @@ div:not(.opponents)>p {
     flex-wrap: wrap;
     gap: 5px;
     font-size: 1.3rem;
-    font-family: 'impact-label-reversed';
+    font-family: 'ktf-roadbrush';
 }
 
 p.submit {
@@ -292,7 +272,7 @@ p.submit {
 
 .result-para {
     font-size: 2rem;
-    font-family: 'winner';
+    font-family: 'ktf-roadbrush';
     text-align: center;
     text-transform: capitalize;
 }
