@@ -108,7 +108,7 @@ main {
 }
 
 .cell {
-    border: 1px solid var(--primary-clr);
+    /* border: 1px solid var(--primary-clr); */
     font-size: 2rem;
     color: var(--secondary-clr);
     display: flex;
@@ -116,16 +116,11 @@ main {
     align-items: center;
     font-family: 'venite';
     font-weight: normal;
+    box-shadow: 2px 2px 6px;
 }
 
-.no-side-bdr {
-    border-left: none;
-    border-right: none;
-}
-
-.no-vertical-bdr {
-    border-bottom: none;
-    border-top: none;
+.cell:hover {
+    box-shadow: 2px 2px 4px;
 }
 
 .btn-container {
