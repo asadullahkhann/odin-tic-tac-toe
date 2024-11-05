@@ -155,9 +155,9 @@ footer {
 }
 
 footer p {
-    padding: 15px;
+    padding: 12px;
     color: var(--tertiary-clr);
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     gap: 5px;
     font-family: 'ktf-roadbrush';
@@ -171,6 +171,8 @@ footer a {
 
 footer img {
     align-self: center;
+    width: 1rem;
+    height: 1rem;
 }
 
 dialog {
