@@ -178,6 +178,8 @@ footer img {
 dialog {
     background-color: var(--tertiary-clr);
     color: var(--primary-clr);
+    border: none;
+    box-shadow: 0 2px 8px #000;
 }
 
 fieldset {
