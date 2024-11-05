@@ -191,7 +191,7 @@ fieldset {
 
 legend {
     font-family: 'knight-warrior';
-    font-size: 2rem;
+    font-size: 1.3rem;
     text-align: center;
 }
 
@@ -202,12 +202,15 @@ legend {
 }
 
 .opponents>p {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-family: 'ktf-roadbrush';
 }
 
+.opponents input[type="radio"] {
+    width: 1.1rem;
+}
+
 input[type="radio"] {
-    width: 1.5rem;
     outline: none;
     accent-color: var(--primary-clr);
 }
@@ -217,7 +220,7 @@ input[type="text"] {
     padding: 4px 8px;
     border-radius: 5px;
     border: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: 'ktf-roadbrush';
     color: var(--secondary-clr);
 }
@@ -225,6 +228,10 @@ input[type="text"] {
 input[type="text"]:focus {
     outline: none;
     box-shadow: 2px 2px 8px var(--primary-clr);
+}
+
+div:not(.opponents) label {
+    font-size: 0.9rem;
 }
 
 label[for="x"], label[for="o"] {
@@ -249,8 +256,12 @@ div p {
 div:not(.opponents)>p {
     flex-wrap: wrap;
     gap: 5px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-family: 'ktf-roadbrush';
+}
+
+div:not(.opponents) input[type="radio"] {
+    width: 1rem;
 }
 
 p.submit {
@@ -264,13 +275,13 @@ p.submit {
     color: var(--tertiary-clr);
     border-radius: 5px;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'ktf-roadbrush';
     font-style: italic;
 }
 
 .result-para {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-family: 'ktf-roadbrush';
     text-align: center;
     text-transform: capitalize;
